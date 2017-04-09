@@ -40,29 +40,16 @@
   </nav>
 
   <main class="mn-inner">
-      <div class="row">
-          <div class="col s12">
-          <br>
-              <div class="page-title"><a href="{{ URL::to('/') }}" class="waves-effect waves-grey btn m-b-xs" style="color: white !important;">Por Consultor</a> <a class="waves-effect waves-grey btn white m-b-xs">Por Cliente</a></div>
-          
-          </div> 
-          <div class="col s12 m12 l12">
-              <div class="card">
-                  <div class="card-content">
-                      <div class="row" id="table-agence">   
-                          
-                          @yield('content')
-                      
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+
+    @yield('content')
+      
   </main>
+
   {{-- SCRIPTS --}}
   <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
   <script src="{{ asset('js/materialize.js') }}"></script>
   <script src="{{ asset('js/init.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
   <script src="{{ asset('select2/js/select2.min.js') }}"></script>
   <script src="{{ asset('pages/form-select2.js') }}"></script>
   <script type="text/javascript">
