@@ -45,6 +45,7 @@ class AgenceController extends Controller
 			    ->join('cao_salario', 'cao_salario.co_usuario', '=','cao_os.co_usuario')
 			    ->rightJoin('cao_usuario', 'cao_usuario.co_usuario', '=','cao_os.co_usuario')
 			    ->select(DB::raw('
+			    	
 			    	cao_salario.brut_salario,
 			    	cao_usuario.co_usuario,
 			    	cao_usuario.no_usuario,
@@ -52,7 +53,7 @@ class AgenceController extends Controller
 			    	YEAR(data_emissao) AS year, 
 			    	sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) as liquida,
 			    	sum((cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) * (cao_fatura.comissao_cn / 100)) as comision,
-			    	(cao_salario.brut_salario+sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100 * (cao_fatura.comissao_cn / 100))) - sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) as lucro
+			    	sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) - (cao_salario.brut_salario+sum((cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) * (cao_fatura.comissao_cn / 100))) as lucro
 			    	'))
 				->whereIn('cao_os.co_usuario', $array)
 				->whereRaw('EXTRACT(month FROM data_emissao) BETWEEN '.$mesUno.' and '.$mesDos)
