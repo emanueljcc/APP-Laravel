@@ -52,14 +52,14 @@ class AgenceController extends Controller
 			    	MONTH(data_emissao) AS mes,
 			    	YEAR(data_emissao) AS year, 
 			    	sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) as liquida,
-			    	sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100 * (cao_fatura.comissao_cn / 100)) as comision,
+			    	sum((cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) * (cao_fatura.comissao_cn / 100)) as comision,
 			    	(cao_salario.brut_salario+sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100 * (cao_fatura.comissao_cn / 100))) - sum(cao_fatura.valor - ((cao_fatura.valor * cao_fatura.total_imp_inc)) / 100) as lucro
 			    	'))
 				->whereIn('cao_os.co_usuario', $array)
 				->whereRaw('EXTRACT(month FROM data_emissao) BETWEEN '.$mesUno.' and '.$mesDos)
 			    ->whereRaw('EXTRACT(year FROM data_emissao) BETWEEN '.$yearUno.' and '.$yearDos)
 			    ->groupBy('cao_os.co_usuario','mes')
-			    ->orderBy('cao_os.co_usuario','asc','mes','desc')
+			    ->orderBy('mes','asc')
 			    ->get();
 			
 			$query2 = DB::table('cao_fatura')
