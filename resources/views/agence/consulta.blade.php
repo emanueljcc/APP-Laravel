@@ -62,8 +62,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                          @foreach($querys as $query)
-                            @if($query2->co_usuario == $query->co_usuario)
+                                    @foreach($querys as $query)
+                                      @if($query2->co_usuario == $query->co_usuario)
                                             <tr>
                                                 <td>@if($query->mes == 1){{ $mes = 'Enero' }}@elseif($query->mes == 2){{ $mes = 'Febrero' }}@elseif($query->mes == 3){{ $mes = 'Marzo' }}@elseif($query->mes == 4){{ $mes = 'Abril' }}@elseif($query->mes == 5){{ $mes = 'Mayo' }}@elseif($query->mes == 6){{ $mes = 'Junio' }}@elseif($query->mes == 7){{ $mes = 'Julio' }}@elseif($query->mes == 8){{ $mes = 'Agosto' }}@elseif($query->mes == 9){{ $mes = 'Septiembre' }}@elseif($query->mes == 10){{ $mes = 'Octubre' }}@elseif($query->mes == 11){{ $mes = 'Noviembre' }}@elseif($query->mes == 12){{ $mes = 'Diciembre' }}
                                                 @endif{{ " de ".$query->year }}</td>
@@ -86,8 +86,8 @@
                                               $totalComision += $query->comision;
                                               $totalLucro += $query->lucro;
                                             ?>
-                            @endif
-                          @endforeach
+                                      @endif
+                                    @endforeach
                                     </tbody>
                                     <thead class="grey lighten-4">
                                         <tr>

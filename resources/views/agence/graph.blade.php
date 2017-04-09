@@ -95,7 +95,6 @@
                                               {{ $query->brut_salario }},
                                             @endif
                                             @endforeach
-
                                             ],
                                       marker: {
                                           lineWidth: 2,
@@ -121,3 +120,4 @@
 @endif
 {{ Form::close() }}
 @endsection
+
