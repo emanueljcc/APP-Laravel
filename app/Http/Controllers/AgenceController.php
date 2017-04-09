@@ -45,7 +45,6 @@ class AgenceController extends Controller
 			    ->join('cao_salario', 'cao_salario.co_usuario', '=','cao_os.co_usuario')
 			    ->rightJoin('cao_usuario', 'cao_usuario.co_usuario', '=','cao_os.co_usuario')
 			    ->select(DB::raw('
-			    	
 			    	cao_salario.brut_salario,
 			    	cao_usuario.co_usuario,
 			    	cao_usuario.no_usuario,
@@ -104,6 +103,7 @@ class AgenceController extends Controller
 				    ->groupBy('cao_os.co_usuario','mes')
 				    ->orderBy('mes','asc')
 				    ->get();
+				   	//dd($query);
 				
 
 				$query2 = DB::table('cao_fatura')
