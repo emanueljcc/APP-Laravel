@@ -51,7 +51,7 @@ Highcharts.chart('container', {
 
     {
         type: 'spline',
-        name: 'Conteo',
+        name: 'Custo Fixo Medio',
         data: [
             @foreach($querys as $query)
 
