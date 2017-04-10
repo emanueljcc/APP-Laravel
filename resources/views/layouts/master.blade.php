@@ -12,6 +12,7 @@
   <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{{ asset('select2/css/select2.css') }}" rel="stylesheet"> 
+  <link href="{{ asset('select2/css/select2.min.css') }}" rel="stylesheet"> 
 </head>
 <body>
   <nav>
